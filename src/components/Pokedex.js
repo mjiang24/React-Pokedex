@@ -1,11 +1,42 @@
 import React from 'react';
-import { AppBar, toolBar } from '@material-ui/core';
+import { AppBar, Toolbar, Grid, Card, CardContent } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles({
+    pokedexContainer: {
+        paddingTop: '20px',
+        paddingLeft: '50px',
+        paddingRight: "50px",
+    },
+});
+
+const getPokemonCard = () => {
+    return (
+        <Grid item xs={4} sm={4}>
+            <Card>
+                <CardContent>
+                    Hi
+                </CardContent>
+            </Card>
+        </Grid>
+    )
+
+}
 
 const Pokedex = () => {
+    const classes = useStyles();
     return (
-        <div>
-            pokedex page
-        </div>
+        <>
+            <AppBar position='Static' color="primary">
+                <Toolbar />
+            </AppBar>
+            <Grid container spacing={2} className={classes.pokedexContainer}>
+                {getPokemonCard()}
+                {getPokemonCard()}
+                {getPokemonCard()}
+                {getPokemonCard()}
+            </Grid>
+        </>
     )
 }
 
